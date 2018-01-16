@@ -19,7 +19,7 @@ class SearchBar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    // Fetch weather data
+    // Trigger action creator
     this.props.fetchWeather(this.state.term);
     this.setState({term: ''});
   }
@@ -45,13 +45,15 @@ class SearchBar extends Component {
     )
   }
 }
-// hook 'fetchWeather' action creator up to the SearchBar container
+// make 'fetchWeather' action creator up to the SearchBar's props
 function mapDispatchToProps(dispatch) {
   // bind action creator 'fetchWeather' to dispatch,
   // and pass it through all middleware and then reducers in redux
-  return bindActionCreators({fetchWeather}, dispatch)
+  return bindActionCreators({ fetchWeather }, dispatch)
 }
 
-// mapStateToProps is passed as the first argument, mapDispatchToProps goes in as the second argument. So if there is no mapStateToProps function yet, pass 'null' in as the first argument.
+// mapStateToProps is passed as the first argument,
+// mapDispatchToProps goes in as the second argument.
+// So if there is no mapStateToProps function yet, pass 'null' in as the first argument.
 
 export default connect(null, mapDispatchToProps)(SearchBar);
