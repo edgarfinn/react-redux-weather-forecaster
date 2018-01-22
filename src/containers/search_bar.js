@@ -46,14 +46,14 @@ class SearchBar extends Component {
   }
 }
 // make 'fetchWeather' action creator up to the SearchBar's props
-function mapDispatchToProps(dispatch) {
+// function mapDispatchToProps(dispatch) {
   // bind action creator 'fetchWeather' to dispatch,
   // and pass it through all middleware and then reducers in redux
-  return bindActionCreators({ fetchWeather }, dispatch)
-}
+//   return bindActionCreators({ fetchWeather }, dispatch)
+// }
 
 // mapStateToProps is passed as the first argument,
 // mapDispatchToProps goes in as the second argument.
 // So if there is no mapStateToProps function yet, pass 'null' in as the first argument.
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(null, {fetchWeather})(SearchBar);
